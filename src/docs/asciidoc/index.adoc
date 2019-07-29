@@ -1,0 +1,677 @@
+ifndef::snippets[]
+:snippets: ../../../build/generated-snippets
+endif::[]
+= API Document
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:sectlinks:
+
+[[introduction]]
+== 소개
+
+Tiny API Server Document
+
+[[common]]
+== 설명
+
+=== 에러 Response Body
+
+|===
+| field | 설명
+
+| `code`
+| 에러 코드
+
+| `message`
+| 에러 메세지
+
+| `fieldErrors`
+| 필드 에러 발생 시 에러 세부 내용
+
+|===
+
+[[default]]
+== 공통 API
+
+=== 상태 체크
+
+|===
+| 서버 상태 체크
+| 라이브 운영 시 장애 상황 파악용
+|===
+
+CURL:
+
+include::{snippets}/health-check/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/health-check/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/health-check/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/health-check/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/health-check/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/health-check/request-body.adoc[]
+
+Response Body:
+
+include::{snippets}/health-check/response-body.adoc[]
+
+
+=== 없는 요청
+
+|===
+| 구현되지 않은 경로로 요청 시 응답
+|===
+
+CURL:
+
+include::{snippets}/not-found/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/not-found/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/not-found/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/not-found/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/not-found/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/not-found/request-body.adoc[]
+
+Response Body:
+
+include::{snippets}/not-found/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/not-found/response-fields.adoc[]
+
+
+[[engine]]
+== Engine API
+
+=== 엔진 등록
+
+|===
+| 엔진 등록
+|===
+
+CURL:
+
+include::{snippets}/engine/save/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/engine/save/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/engine/save/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/engine/save/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/engine/save/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/engine/save/request-body.adoc[]
+
+Request Fields:
+
+include::{snippets}/engine/save/request-fields.adoc[]
+
+Response Body:
+
+include::{snippets}/engine/save/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/engine/save/response-fields.adoc[]
+
+=== 엔진 등록 시 이름이 짧을 경우 예외처리
+
+|===
+| 엔진 등록 시 이름이 짧을 경우 예외처리
+|===
+
+CURL:
+
+include::{snippets}/engine/save-shorter-than-min-name/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/engine/save-shorter-than-min-name/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/engine/save-shorter-than-min-name/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/engine/save-shorter-than-min-name/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/engine/save-shorter-than-min-name/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/engine/save-shorter-than-min-name/request-body.adoc[]
+
+Request Fields:
+
+include::{snippets}/engine/save-shorter-than-min-name/request-fields.adoc[]
+
+Response Body:
+
+include::{snippets}/engine/save-shorter-than-min-name/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/engine/save-shorter-than-min-name/response-fields.adoc[]
+
+
+=== 엔진 등록 시 이름이 길 경우 예외처리
+
+|===
+| 엔진 등록 시 이름이 길 경우 예외처리
+|===
+
+CURL:
+
+include::{snippets}/engine/save-longer-than-max-name/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/engine/save-longer-than-max-name/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/engine/save-longer-than-max-name/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/engine/save-longer-than-max-name/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/engine/save-longer-than-max-name/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/engine/save-longer-than-max-name/request-body.adoc[]
+
+Request Fields:
+
+include::{snippets}/engine/save-longer-than-max-name/request-fields.adoc[]
+
+Response Body:
+
+include::{snippets}/engine/save-longer-than-max-name/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/engine/save-longer-than-max-name/response-fields.adoc[]
+
+
+=== 엔진 리스트 조회
+
+|===
+| 엔진 리스트 조회
+|===
+
+CURL:
+
+include::{snippets}/engine/find-all/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/engine/find-all/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/engine/find-all/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/engine/find-all/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/engine/find-all/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/engine/find-all/request-body.adoc[]
+
+Response Body:
+
+include::{snippets}/engine/find-all/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/engine/find-all/response-fields.adoc[]
+
+=== 엔진 상세 조회
+
+|===
+| 엔진 상세 조회
+|===
+
+CURL:
+
+include::{snippets}/engine/find-by-id/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/engine/find-by-id/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/engine/find-by-id/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/engine/find-by-id/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/engine/find-by-id/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/engine/find-by-id/request-body.adoc[]
+
+Response Body:
+
+include::{snippets}/engine/find-by-id/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/engine/find-by-id/response-fields.adoc[]
+
+
+=== 엔진 상세 조회 시 아이디가 없을 경우 예외처리
+
+|===
+| 엔진 상세 조회 시 아이디가 없을 경우 예외처리
+|===
+
+CURL:
+
+include::{snippets}/engine/not-found/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/engine/not-found/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/engine/not-found/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/engine/not-found/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/engine/not-found/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/engine/not-found/request-body.adoc[]
+
+Response Body:
+
+include::{snippets}/engine/not-found/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/engine/not-found/response-fields.adoc[]
+
+=== 엔진 실행
+
+|===
+| 엔진 실행
+|===
+
+CURL:
+
+include::{snippets}/engine/run/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/engine/run/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/engine/run/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/engine/run/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/engine/run/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/engine/run/request-body.adoc[]
+
+Request Fields:
+
+include::{snippets}/engine/run/request-fields.adoc[]
+
+Response Body:
+
+include::{snippets}/engine/run/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/engine/run/response-fields.adoc[]
+
+
+[[engine-task]]
+== Engine Task API
+
+=== 엔진 작업 리스트 조회
+
+|===
+| 엔진 작업 리스트 조회
+|===
+
+CURL:
+
+include::{snippets}/engine/task/find-all/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/engine/task/find-all/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/engine/task/find-all/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/engine/task/find-all/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/engine/task/find-all/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/engine/task/find-all/request-body.adoc[]
+
+Response Body:
+
+include::{snippets}/engine/task/find-all/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/engine/task/find-all/response-fields.adoc[]
+
+
+=== 엔진 작업 세부 조회
+
+|===
+| 엔진 작업 세부 조회
+|===
+
+CURL:
+
+include::{snippets}/engine/task/find-by-id/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/engine/task/find-by-id/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/engine/task/find-by-id/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/engine/task/find-by-id/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/engine/task/find-by-id/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/engine/task/find-by-id/request-body.adoc[]
+
+Response Body:
+
+include::{snippets}/engine/task/find-by-id/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/engine/task/find-by-id/response-fields.adoc[]
+
+=== 엔진 작업 상세 조회 시 아이디가 없을 경우 예외처리
+
+|===
+| 엔진 작업 상세 조회 시 아이디가 없을 경우 예외처리
+|===
+
+CURL:
+
+include::{snippets}/engine/task/not-found/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/engine/task/not-found/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/engine/task/not-found/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/engine/task/not-found/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/engine/task/not-found/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/engine/task/not-found/request-body.adoc[]
+
+Response Body:
+
+include::{snippets}/engine/task/not-found/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/engine/task/not-found/response-fields.adoc[]
+
+=== 엔진 작업 리포팅
+
+|===
+| 엔진 작업 리포팅
+|===
+
+CURL:
+
+include::{snippets}/engine/task/report/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/engine/task/report/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/engine/task/report/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/engine/task/report/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/engine/task/report/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/engine/task/report/request-body.adoc[]
+
+Response Body:
+
+include::{snippets}/engine/task/report/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/engine/task/report/response-fields.adoc[]
+
+=== 엔진 작업이 끝나지 않았을 때 리포팅시 실패 예외처리
+
+|===
+| 엔진 작업이 끝나지 않았을 때 리포팅시 실패 예외처리
+|===
+
+CURL:
+
+include::{snippets}/engine/task/report-not-complete/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/engine/task/report-not-complete/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/engine/task/report-not-complete/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/engine/task/report-not-complete/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/engine/task/report-not-complete/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/engine/task/report-not-complete/request-body.adoc[]
+
+Response Body:
+
+include::{snippets}/engine/task/report-not-complete/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/engine/task/report-not-complete/response-fields.adoc[]
+
+[[engine-task-command]]
+== Engine Task Command API
+
+=== 엔진 작업 실행 기록 리스트 조회
+
+|===
+| 엔진 작업 실행 기록 리스트 조회
+|===
+
+CURL:
+
+include::{snippets}/engine/task/command/find-all/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/engine/task/command/find-all/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/engine/task/command/find-all/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/engine/task/command/find-all/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/engine/task/command/find-all/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/engine/task/command/find-all/request-body.adoc[]
+
+Response Body:
+
+include::{snippets}/engine/task/command/find-all/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/engine/task/command/find-all/response-fields.adoc[]
+
+[[engine-task-query]]
+== Engine Task Query API
+
+=== 엔진 작업 리포트 기록 리스트 조회
+
+|===
+| 엔진 작업 리포트 기록 리스트 조회
+|===
+
+CURL:
+
+include::{snippets}/engine/task/query/find-all/curl-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/engine/task/query/find-all/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/engine/task/query/find-all/http-response.adoc[]
+
+HTTPie:
+
+include::{snippets}/engine/task/query/find-all/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/engine/task/query/find-all/path-parameters.adoc[]
+
+Request Body:
+
+include::{snippets}/engine/task/query/find-all/request-body.adoc[]
+
+Response Body:
+
+include::{snippets}/engine/task/query/find-all/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/engine/task/query/find-all/response-fields.adoc[]
