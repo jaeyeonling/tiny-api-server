@@ -1,4 +1,6 @@
-# Tiny API Server 
+# Tiny API Server  
+[![Build Status](https://travis-ci.org/jaeyeonling/tiny-api-server.svg?branch=master)](https://travis-ci.org/jaeyeonling/tiny-api-server)
+
 > [과제 내용](./docs/requirements.md)
 >
 > 과제 후 코드가 아까워서 소소한 수정 후 업로드 
