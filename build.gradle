@@ -1,90 +1,90 @@
 plugins {
-	id 'org.springframework.boot' version '2.1.6.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-	id 'org.asciidoctor.convert' version '2.2.0'
-	id 'java'
-	id 'idea'
+    id 'org.springframework.boot' version '2.1.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'org.asciidoctor.convert' version '2.2.0'
+    id 'java'
+    id 'idea'
 }
 
 group = 'com.jaeyeonling'
 version = '0.0.1'
 
 ext {
-	javaVersion = 12
-	snippetsDir = file('build/generated-snippets')
+    javaVersion = 12
+    snippetsDir = file('build/generated-snippets')
 
-	versions = [
-			'lombok'                : '1.18.+',
-			'junit'					: '5.5.+',
-			'junit-platform'		: '1.5.+',
-			'spring-boot'           : '2.1.+',
-			'h2'                    : '1.4.+',
-			'hibernate'             : '5.+',
-			'uuid'                  : '3.2.+',
-			'java-jwt'              : '3.+',
-			'slf4j'              	: '1.7.+',
-			'logback'             	: '1.2.+',
-			'embed-mongo'			: '2.2.+',
-			'restdocs'              : '2.0.+',
-			'micrometer'			: '1.2.+',
-	]
+    versions = [
+            'lombok'                : '1.18.+',
+            'junit'                 : '5.5.+',
+            'junit-platform'        : '1.5.+',
+            'spring-boot'           : '2.1.+',
+            'h2'                    : '1.4.+',
+            'hibernate'             : '5.+',
+            'uuid'                  : '3.2.+',
+            'java-jwt'              : '3.+',
+            'slf4j'                 : '1.7.+',
+            'logback'               : '1.2.+',
+            'embed-mongo'           : '2.2.+',
+            'restdocs'              : '2.0.+',
+            'micrometer'            : '1.2.+',
+    ]
 }
 
 sourceCompatibility = javaVersion
 targetCompatibility = javaVersion
 
 asciidoctor {
-	inputs.dir snippetsDir
-	dependsOn test
+    inputs.dir snippetsDir
+    dependsOn test
 }
 
 bootJar {
-	dependsOn asciidoctor
-	from ("${asciidoctor.outputDir}/html5") {
-		into 'static/docs'
-	}
+    dependsOn asciidoctor
+    from ("${asciidoctor.outputDir}/html5") {
+        into 'static/docs'
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
 
 dependencies {
-	compileOnly(group: 'org.projectlombok', name: 'lombok', version: versions['lombok'])
-	annotationProcessor(group: 'org.projectlombok', name: 'lombok', version: versions['lombok'])
+    compileOnly(group: 'org.projectlombok', name: 'lombok', version: versions['lombok'])
+    annotationProcessor(group: 'org.projectlombok', name: 'lombok', version: versions['lombok'])
 
     testRuntimeOnly(group: 'com.h2database', name: 'h2', version: versions['h2'])
 
-	testImplementation(group: 'org.junit.platform', name: 'junit-platform-commons', version: versions['junit-platform'])
-	testImplementation(group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: versions['junit'])
-	testImplementation(group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: versions['junit'])
-	testRuntimeOnly(group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: versions['junit'])
+    testImplementation(group: 'org.junit.platform', name: 'junit-platform-commons', version: versions['junit-platform'])
+    testImplementation(group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: versions['junit'])
+    testImplementation(group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: versions['junit'])
+    testRuntimeOnly(group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: versions['junit'])
 
-	testImplementation(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: versions['spring-boot']) {
-		exclude group: 'junit', module: 'junit'
-	}
+    testImplementation(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: versions['spring-boot']) {
+        exclude group: 'junit', module: 'junit'
+    }
 
-	testImplementation(group: 'org.springframework.restdocs', name: 'spring-restdocs-mockmvc', version: versions['restdocs'])
-	implementation(group: 'org.springframework.boot', name: 'spring-boot-starter', version: versions['spring-boot'])
-	implementation(group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: versions['spring-boot'])
+    testImplementation(group: 'org.springframework.restdocs', name: 'spring-restdocs-mockmvc', version: versions['restdocs'])
+    implementation(group: 'org.springframework.boot', name: 'spring-boot-starter', version: versions['spring-boot'])
+    implementation(group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: versions['spring-boot'])
     implementation(group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: versions['spring-boot'])
-	implementation(group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: versions['spring-boot'])
+    implementation(group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: versions['spring-boot'])
 
     implementation group: 'mysql', name: 'mysql-connector-java', version: versions['mysql']
 
-	implementation(group: 'org.hibernate', name: 'hibernate-core', version: versions['hibernate'])
-	implementation(group: 'org.hibernate', name: 'hibernate-entitymanager', version: versions['hibernate'])
-	implementation(group: 'org.hibernate', name: 'hibernate-hikaricp', version: versions['hibernate'])
+    implementation(group: 'org.hibernate', name: 'hibernate-core', version: versions['hibernate'])
+    implementation(group: 'org.hibernate', name: 'hibernate-entitymanager', version: versions['hibernate'])
+    implementation(group: 'org.hibernate', name: 'hibernate-hikaricp', version: versions['hibernate'])
 
-	implementation(group: 'org.slf4j', name: 'slf4j-api', version: versions['slf4j'])
-	implementation(group: 'org.slf4j', name: 'jcl-over-slf4j', version: versions['slf4j'])
+    implementation(group: 'org.slf4j', name: 'slf4j-api', version: versions['slf4j'])
+    implementation(group: 'org.slf4j', name: 'jcl-over-slf4j', version: versions['slf4j'])
 
-	implementation(group: 'ch.qos.logback', name: 'logback-classic', version: versions['logback'])
-	implementation(group: 'ch.qos.logback', name: 'logback-core', version: versions['logback'])
+    implementation(group: 'ch.qos.logback', name: 'logback-classic', version: versions['logback'])
+    implementation(group: 'ch.qos.logback', name: 'logback-core', version: versions['logback'])
 
-	implementation(group: 'io.micrometer', name: 'micrometer-registry-prometheus', version: versions['micrometer'])
+    implementation(group: 'io.micrometer', name: 'micrometer-registry-prometheus', version: versions['micrometer'])
 }
