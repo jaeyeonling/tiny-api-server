@@ -1,5 +1,5 @@
 # Tiny API Server 
-> 메일로 보내주신 [요청사항](./docs/requirements.md)
+> [과제 내용](./docs/requirements.md)
 >
 > 과제 후 코드가 아까워서 소소한 수정 후 업로드 
 > 1. 기존 요구사항에서 MongoDB -> RDB 변경
