@@ -60,9 +60,8 @@ dependencies {
     testRuntimeOnly(group: 'com.h2database', name: 'h2', version: versions['h2'])
 
     testImplementation(group: 'org.junit.platform', name: 'junit-platform-commons', version: versions['junit-platform'])
-    testImplementation(group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: versions['junit'])
-    testImplementation(group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: versions['junit'])
-    testRuntimeOnly(group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: versions['junit'])
+    testRuntimeOnly(group: 'org.junit.platform', name: 'junit-platform-runner', version: versions['junit-platform'])
+    testImplementation(group: 'org.junit.jupiter', name: 'junit-jupiter', version: versions['junit'])
 
     testImplementation(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: versions['spring-boot']) {
         exclude group: 'junit', module: 'junit'
